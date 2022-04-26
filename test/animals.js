@@ -55,6 +55,7 @@ describe('Lista de animales', () => {
     it('determina los resultados utilizando Array.filter', () => {
 
       chai.spy.on(otraLista.animales, 'filter')
+      
       otraLista.unMetodoConFilter()
 
       expect(otraLista.animales.filter).to.have.been.called()
