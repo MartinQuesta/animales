@@ -27,6 +27,12 @@ function otros(){
     return listaDeOtros
 }
 
+function unMetodoConFilter() {
+    const listaDeOtros = []
+    this.animales.filter(animal => animal.tipo == 'Perro')
+    return listaDeOtros
+}
+
 
 const animales= [
     {
@@ -46,4 +52,4 @@ const animales= [
         tipo: 'Perro'
     }
 ]
-module.exports = { perros, gatos, animales}
+module.exports = { perros, gatos, otros, animales, unMetodoConFilter}

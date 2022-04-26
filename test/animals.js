@@ -1,9 +1,11 @@
 const { expect } = require("chai")
+const { chai } = require("chai")
+
 const { mocha } = require("mocha")
-const Newlista = require('./lista.js')
+//const Newlista = require('./lista.js')
 const otraLista = require('./otraLista.js')
 
-const lista = Newlista
+//const lista = Newlista
 
 const perros = [
     {
@@ -35,23 +37,27 @@ describe('Lista de animales', () => {
   describe('#perros', () => {
     it('devuelve los animales que son perros', () => {
       //expect('Perro').to.equal(perros)
-      expect(otraLista.perros()).to.equal(perros)
+      expect(otraLista.perros()).to.eql(perros)   //equal apunta al mismo lugar de memoria & eql compara valores 1a1.
     })
   })
 
   describe('#gatos', () => {
     it('devuelve los animales que son gatos', () => {
-      expect(otraLista.gatos()).to.equal(gatos)
+      expect(otraLista.gatos()).to.eql(gatos)
     })
   })
 
   describe('#otros', () => {
     it('devuelve los animales que no son perros ni gatos', () => {
-      expect(lista.otros()).to.equal(otros)
+      expect(otraLista.otros()).to.eql(otros)
     })
 
     it('determina los resultados utilizando Array.filter', () => {
-      expect(animales.filter).to.have.been.called()
+
+      chai.spy.on(otraLista.animales, 'filter')
+      otraLista.unMetodoConFilter()
+
+      expect(otraLista.animales.filter).to.have.been.called()
     })
   })
 })
