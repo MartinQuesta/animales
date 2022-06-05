@@ -1,9 +1,10 @@
 const { expect } = require("chai")
-const { chai } = require("chai")
-
+const chai  = require("chai")
+const chaiSpies = require("chai-spies")
 const { mocha } = require("mocha")
-//const Newlista = require('./lista.js')
 const otraLista = require('./otraLista.js')
+chai.use(chaiSpies)
+
 
 //const lista = Newlista
 
